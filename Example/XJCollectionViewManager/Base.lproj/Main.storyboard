@@ -1,31 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uX8-g0-Bxf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="wQg-tq-qST">
+        <!--Navigation Controller-->
+        <scene sceneID="xl8-2I-Xcw">
             <objects>
-                <viewController id="whP-gf-Uak" customClass="XJViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                <navigationController id="uX8-g0-Bxf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rT5-Hi-U0E">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pAs-RW-Ktm" kind="relationship" relationship="rootViewController" id="QCK-pn-Vq8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zow-SL-rF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-797" y="21"/>
+        </scene>
+        <!--Dramas View Controller-->
+        <scene sceneID="LwE-Wa-UAG">
+            <objects>
+                <viewController id="pAs-RW-Ktm" customClass="DramasViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zeB-Hz-iBg" customClass="dr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NT8-2p-3AI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="input sessionIndex" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oJR-RT-CtU">
+                                        <rect key="frame" x="3" y="3" width="369" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kr1-dz-wUb"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4B-51-XsC">
+                                        <rect key="frame" x="6" y="33" width="123" height="27"/>
+                                        <state key="normal" title="Append Rows"/>
+                                        <connections>
+                                            <action selector="action_appendRows" destination="pAs-RW-Ktm" eventType="touchUpInside" id="oJP-Sr-HKI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5Y-Di-Cdf">
+                                        <rect key="frame" x="129" y="33" width="123" height="27"/>
+                                        <state key="normal" title="Insert Section"/>
+                                        <connections>
+                                            <action selector="action_insertSection" destination="pAs-RW-Ktm" eventType="touchUpInside" id="Eaa-OQ-czQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5t0-gS-sTm">
+                                        <rect key="frame" x="252" y="33" width="123" height="27"/>
+                                        <state key="normal" title="Add DataModel"/>
+                                        <connections>
+                                            <action selector="action_appendDataModel" destination="pAs-RW-Ktm" eventType="touchUpInside" id="GVV-8e-iRB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="l4B-51-XsC" firstAttribute="leading" secondItem="NT8-2p-3AI" secondAttribute="leading" constant="6" id="2tr-hs-qvC"/>
+                                    <constraint firstAttribute="trailing" secondItem="5t0-gS-sTm" secondAttribute="trailing" id="3Xs-OK-p8V"/>
+                                    <constraint firstItem="K5Y-Di-Cdf" firstAttribute="leading" secondItem="l4B-51-XsC" secondAttribute="trailing" id="94u-IT-mrF"/>
+                                    <constraint firstItem="K5Y-Di-Cdf" firstAttribute="width" secondItem="l4B-51-XsC" secondAttribute="width" id="D0b-eE-Eox"/>
+                                    <constraint firstItem="5t0-gS-sTm" firstAttribute="width" secondItem="l4B-51-XsC" secondAttribute="width" id="ONF-2a-uyE"/>
+                                    <constraint firstAttribute="bottom" secondItem="K5Y-Di-Cdf" secondAttribute="bottom" id="QYY-QH-PyR"/>
+                                    <constraint firstAttribute="bottom" secondItem="5t0-gS-sTm" secondAttribute="bottom" id="RHB-rW-2To"/>
+                                    <constraint firstItem="l4B-51-XsC" firstAttribute="top" secondItem="oJR-RT-CtU" secondAttribute="bottom" id="UBj-2H-N8M"/>
+                                    <constraint firstAttribute="trailing" secondItem="oJR-RT-CtU" secondAttribute="trailing" constant="3" id="Vcl-bb-FMt"/>
+                                    <constraint firstAttribute="bottom" secondItem="l4B-51-XsC" secondAttribute="bottom" id="WJw-D5-N1T"/>
+                                    <constraint firstItem="oJR-RT-CtU" firstAttribute="leading" secondItem="NT8-2p-3AI" secondAttribute="leading" constant="3" id="cbG-6B-etK"/>
+                                    <constraint firstItem="5t0-gS-sTm" firstAttribute="top" secondItem="oJR-RT-CtU" secondAttribute="bottom" id="jcL-Lt-tzU"/>
+                                    <constraint firstItem="oJR-RT-CtU" firstAttribute="top" secondItem="NT8-2p-3AI" secondAttribute="top" constant="3" id="lFe-ZR-FYa"/>
+                                    <constraint firstAttribute="height" constant="60" id="pdH-9m-XMC"/>
+                                    <constraint firstItem="K5Y-Di-Cdf" firstAttribute="top" secondItem="oJR-RT-CtU" secondAttribute="bottom" id="yVe-Ke-Ltz"/>
+                                    <constraint firstItem="5t0-gS-sTm" firstAttribute="leading" secondItem="K5Y-Di-Cdf" secondAttribute="trailing" id="zDj-kj-0t8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NT8-2p-3AI" firstAttribute="leading" secondItem="EYb-34-sbX" secondAttribute="leading" id="DVo-gb-NRQ"/>
+                            <constraint firstItem="NT8-2p-3AI" firstAttribute="top" secondItem="EYb-34-sbX" secondAttribute="top" id="Faf-0x-klH"/>
+                            <constraint firstItem="NT8-2p-3AI" firstAttribute="trailing" secondItem="EYb-34-sbX" secondAttribute="trailing" id="ltz-Op-8zA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EYb-34-sbX"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6RV-T1-aam"/>
+                    <connections>
+                        <outlet property="controlsView" destination="NT8-2p-3AI" id="5Sk-kR-I7x"/>
+                        <outlet property="inputField" destination="oJR-RT-CtU" id="a7H-lh-B45"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDX-64-uxZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="340" y="20"/>
         </scene>
     </scenes>
 </document>

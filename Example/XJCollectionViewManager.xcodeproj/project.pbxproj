@@ -14,7 +14,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* XJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XJAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* XJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* XJViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -23,6 +22,10 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		901512E222AEB032006FF8F0 /* DramasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901512E122AEB032006FF8F0 /* DramasViewController.m */; };
+		901512ED22AEB28D006FF8F0 /* DramaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 901512EB22AEB28D006FF8F0 /* DramaCell.m */; };
+		901512EE22AEB28D006FF8F0 /* DramaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 901512EC22AEB28D006FF8F0 /* DramaCell.xib */; };
+		901512F422AEB62F006FF8F0 /* DramaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 901512F322AEB62F006FF8F0 /* DramaModel.m */; };
 		C2A6579633875979F2CB84D9 /* Pods_XJCollectionViewManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B298439AD024E17E1F69AE17 /* Pods_XJCollectionViewManager_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +50,6 @@
 		6003F59B195388D20070C39A /* XJCollectionViewManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XJCollectionViewManager-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* XJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* XJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* XJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* XJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* XJCollectionViewManager_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJCollectionViewManager_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -59,13 +60,20 @@
 		6C6C676C6AC26320FC0672DB /* Pods-XJCollectionViewManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJCollectionViewManager_Tests.release.xcconfig"; path = "Target Support Files/Pods-XJCollectionViewManager_Tests/Pods-XJCollectionViewManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		901512E022AEB032006FF8F0 /* DramasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DramasViewController.h; sourceTree = "<group>"; };
+		901512E122AEB032006FF8F0 /* DramasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DramasViewController.m; sourceTree = "<group>"; };
+		901512EA22AEB28D006FF8F0 /* DramaCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DramaCell.h; sourceTree = "<group>"; };
+		901512EB22AEB28D006FF8F0 /* DramaCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DramaCell.m; sourceTree = "<group>"; };
+		901512EC22AEB28D006FF8F0 /* DramaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DramaCell.xib; sourceTree = "<group>"; };
+		901512F222AEB62F006FF8F0 /* DramaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DramaModel.h; sourceTree = "<group>"; };
+		901512F322AEB62F006FF8F0 /* DramaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DramaModel.m; sourceTree = "<group>"; };
 		9C341D2356647CFDCB98427F /* Pods_XJCollectionViewManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJCollectionViewManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B298439AD024E17E1F69AE17 /* Pods_XJCollectionViewManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJCollectionViewManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8286DF35B89132024CFE2FD /* XJCollectionViewManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = XJCollectionViewManager.podspec; path = ../XJCollectionViewManager.podspec; sourceTree = "<group>"; };
+		B8286DF35B89132024CFE2FD /* XJCollectionViewManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XJCollectionViewManager.podspec; path = ../XJCollectionViewManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C0D36EC53C9034B86057C4DE /* Pods-XJCollectionViewManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJCollectionViewManager_Example.debug.xcconfig"; path = "Target Support Files/Pods-XJCollectionViewManager_Example/Pods-XJCollectionViewManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C7ACC351AB46F680E1DAAB1F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C7ACC351AB46F680E1DAAB1F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C7EB2DC1402194C42752174B /* Pods-XJCollectionViewManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJCollectionViewManager_Example.release.xcconfig"; path = "Target Support Files/Pods-XJCollectionViewManager_Example/Pods-XJCollectionViewManager_Example.release.xcconfig"; sourceTree = "<group>"; };
-		CFB7334A8AE6503EBC3CD205 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		CFB7334A8AE6503EBC3CD205 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		EF40601F03E721D2FC70F85E /* Pods-XJCollectionViewManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJCollectionViewManager_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XJCollectionViewManager_Tests/Pods-XJCollectionViewManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +111,6 @@
 				EF40601F03E721D2FC70F85E /* Pods-XJCollectionViewManager_Tests.debug.xcconfig */,
 				6C6C676C6AC26320FC0672DB /* Pods-XJCollectionViewManager_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -146,9 +153,8 @@
 			children = (
 				6003F59C195388D20070C39A /* XJAppDelegate.h */,
 				6003F59D195388D20070C39A /* XJAppDelegate.m */,
+				901512DF22AEB023006FF8F0 /* Drama */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* XJViewController.h */,
-				6003F5A6195388D20070C39A /* XJViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -195,6 +201,36 @@
 				CFB7334A8AE6503EBC3CD205 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		901512DF22AEB023006FF8F0 /* Drama */ = {
+			isa = PBXGroup;
+			children = (
+				901512E922AEB272006FF8F0 /* View */,
+				901512E522AEB067006FF8F0 /* Model */,
+				901512E022AEB032006FF8F0 /* DramasViewController.h */,
+				901512E122AEB032006FF8F0 /* DramasViewController.m */,
+			);
+			path = Drama;
+			sourceTree = "<group>";
+		};
+		901512E522AEB067006FF8F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				901512F222AEB62F006FF8F0 /* DramaModel.h */,
+				901512F322AEB62F006FF8F0 /* DramaModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		901512E922AEB272006FF8F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				901512EA22AEB28D006FF8F0 /* DramaCell.h */,
+				901512EB22AEB28D006FF8F0 /* DramaCell.m */,
+				901512EC22AEB28D006FF8F0 /* DramaCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +294,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -281,6 +318,7 @@
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				901512EE22AEB28D006FF8F0 /* DramaCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,10 +384,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XJCollectionViewManager_Example/Pods-XJCollectionViewManager_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/XJCollectionViewManager/XJCollectionViewManager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XJCollectionViewManager.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,9 +404,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901512E222AEB032006FF8F0 /* DramasViewController.m in Sources */,
 				6003F59E195388D20070C39A /* XJAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* XJViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				901512ED22AEB28D006FF8F0 /* DramaCell.m in Sources */,
+				901512F422AEB62F006FF8F0 /* DramaModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
