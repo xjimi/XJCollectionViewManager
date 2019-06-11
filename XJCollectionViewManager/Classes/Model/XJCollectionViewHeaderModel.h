@@ -10,6 +10,4 @@
 
 @interface XJCollectionViewHeaderModel : XJCollectionReusableModel
 
-
-
 @end

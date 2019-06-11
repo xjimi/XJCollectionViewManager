@@ -13,9 +13,10 @@
 
 @interface XJCollectionViewDataModel : NSObject
 
-@property (nonatomic, strong) XJCollectionReusableModel *section;
-@property (nonatomic, strong) NSMutableArray *rows;
+@property (nonatomic, strong, nullable) XJCollectionReusableModel *section;
+@property (nonatomic, strong, nonnull) NSMutableArray *rows;
 
-+ (XJCollectionViewDataModel *)modelWithSection:(XJCollectionReusableModel *)reusableModel rows:(NSArray *)rows;
++ (nonnull XJCollectionViewDataModel *)modelWithSection:(nullable XJCollectionReusableModel *)reusableModel
+                                                   rows:(nonnull NSArray *)rows;
 
 @end

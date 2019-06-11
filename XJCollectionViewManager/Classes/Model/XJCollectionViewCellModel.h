@@ -11,10 +11,12 @@
 
 @interface XJCollectionViewCellModel : NSObject
 
-@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy, nullable) NSString *identifier;
 @property (nonatomic, assign) CGSize size;
-@property (nonatomic, strong) id data;
+@property (nonatomic, strong, nullable) id data;
 
-+ (XJCollectionViewCellModel *)modelWithReuseIdentifier:(NSString *)identifier size:(CGSize)size data:(id)data;
++ (nonnull XJCollectionViewCellModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
+                                                           size:(CGSize)size
+                                                           data:(nullable id)data;
 
 @end

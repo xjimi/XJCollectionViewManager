@@ -9,6 +9,8 @@
 #import "DramasViewController.h"
 #import <XJCollectionViewManager/XJCollectionViewManager.h>
 #import <Masonry/Masonry.h>
+#import "DramaHeader.h"
+#import "DramaCell.h"
 
 @interface DramasViewController ()
 
@@ -40,6 +42,7 @@
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 3, 0);
     
     XJCollectionViewManager *collectionView = [XJCollectionViewManager managerWithCollectionViewLayout:flowLayout];
+    collectionView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:collectionView];
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.controlsView.mas_bottom);
@@ -47,12 +50,12 @@
         make.right.mas_equalTo(self.view);
         make.bottom.mas_equalTo(self.view);
     }];
-    
+
     self.collectionView = collectionView;
 }
 
 - (void)reloadData {
-    self.tableView.data = @[[self createDataModel]].mutableCopy;
+    self.collectionView.data = @[[self createDataModel]].mutableCopy;
 }
 
 - (XJCollectionViewDataModel *)createDataModel
@@ -63,30 +66,33 @@
     return dataModel;
 }
 
-- (XJCollectionViewHeaderModel *)createHeaderModel
+- (XJCollectionReusableModel *)createHeaderModel
 {
-    NSString *setion = [NSString stringWithFormat:@"New Album %ld", (long)self.collectionView.data.count];
-    XJTableViewHeaderModel *headerModel = [XJTableViewHeaderModel
-                                           modelWithReuseIdentifier:[AlbumHeader identifier]
-                                           headerHeight:50.0f
-                                           data:setion];
+    NSString *setion = [NSString stringWithFormat:@"New Drama %ld", (long)self.collectionView.data.count + 1];
+    CGFloat vw = CGRectGetWidth(self.view.frame);
+    XJCollectionReusableModel *headerModel = [XJCollectionReusableModel
+                                              modelWithReuseIdentifier:[DramaHeader identifier]
+                                              size:CGSizeMake(vw, 50)
+                                              data:setion];
     return headerModel;
 }
 
 - (NSMutableArray *)createRows
 {
     NSMutableArray *rows = [NSMutableArray array];
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 9; i++)
     {
-        AlbumModel *model = [[AlbumModel alloc] init];
-        model.albumName = @"Scorpion (OVO Updated Version) [iTunes][2018]";
-        model.artistName = @"Drake";
-        model.imageName = @"drake";
-        
-        XJTableViewCellModel *cellModel = [XJTableViewCellModel
-                                           modelWithReuseIdentifier:[AlbumCell identifier]
-                                           cellHeight:80.0f
-                                           data:model];
+        DramaModel *model = [[DramaModel alloc] init];
+        model.dramaName = @"Signal";
+        model.detailInfo = @"tvN Korean Drama of 2018";
+        model.imageName = @"drama";
+
+        CGFloat vw = (CGRectGetWidth(self.view.frame) * .5) - 1.5;
+        CGFloat cellh = roundf(vw * (9.0 / 16.0)) + 70;
+        XJCollectionViewCellModel *cellModel = [XJCollectionViewCellModel
+                                                modelWithReuseIdentifier:[DramaCell identifier]
+                                                size:CGSizeMake(vw, cellh)
+                                                data:model];
         [rows addObject:cellModel];
     }
     return rows;
@@ -102,17 +108,17 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        XJTableViewHeaderModel *section = nil;
-        if (sectionIndex < self.tableView.data.count)
+        XJCollectionReusableModel *section = nil;
+        if (sectionIndex < self.collectionView.data.count)
         {
-            XJTableViewDataModel *dataModel = [self.tableView.data objectAtIndex:sectionIndex];
+            XJCollectionViewDataModel *dataModel = [self.collectionView.data objectAtIndex:sectionIndex];
             section = dataModel.section;
         }
         
-        XJTableViewDataModel *newDataModel = [XJTableViewDataModel
-                                              modelWithSection:section
-                                              rows:[self createRows]];
-        [self.tableView appendRowsWithDataModel:newDataModel];
+        XJCollectionViewDataModel *newDataModel = [XJCollectionViewDataModel
+                                                   modelWithSection:section
+                                                   rows:[self createRows]];
+        [self.collectionView appendRowsWithDataModel:newDataModel];
         
     });
 }
@@ -121,10 +127,10 @@
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        XJTableViewDataModel *newDataModel = [XJTableViewDataModel
-                                              modelWithSection:nil
-                                              rows:[self createRows]];
-        [self.tableView appendDataModel:newDataModel];
+        XJCollectionViewDataModel *newDataModel = [XJCollectionViewDataModel
+                                                   modelWithSection:nil
+                                                   rows:[self createRows]];
+        [self.collectionView appendDataModel:newDataModel];
         
     });
 }
@@ -136,8 +142,8 @@
     NSInteger sectionIndex = [self.inputField.text integerValue];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        XJTableViewDataModel *dataModel = [self createDataModel];
-        [self.tableView insertDataModel:dataModel atSectionIndex:sectionIndex];
+        XJCollectionViewDataModel *dataModel = [self createDataModel];
+        [self.collectionView insertDataModel:dataModel atSectionIndex:sectionIndex];
         
     });
 }

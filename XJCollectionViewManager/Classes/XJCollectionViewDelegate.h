@@ -5,6 +5,8 @@
 //  Created by XJIMI on 2019/6/10.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol XJCollectionViewDelegate <NSObject>
 @optional
 - (NSInteger)xj_collectionView:(UICollectionView *)collectionView
@@ -21,4 +23,6 @@
      sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

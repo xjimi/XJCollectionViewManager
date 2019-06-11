@@ -7,7 +7,6 @@
 //
 
 #import "DramaCell.h"
-#import "DramaModel.h"
 
 @implementation DramaCell
 
@@ -21,7 +20,7 @@
     if ([data isKindOfClass:[DramaModel class]])
     {
         DramaModel *dramaModel = (DramaModel *)data;
-        self.coverImageView.image = [UIImage imageNamed:dramaModel.coverImageName];
+        self.coverImageView.image = [UIImage imageNamed:dramaModel.imageName];
         self.titleLabel.text = dramaModel.dramaName;
         self.subtitleLabel.text = dramaModel.detailInfo;
     }

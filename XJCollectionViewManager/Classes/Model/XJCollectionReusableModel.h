@@ -11,15 +11,19 @@
 
 @interface XJCollectionReusableModel : NSObject
 
-@property (nonatomic, copy) NSString *sectionId;
-@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy, nonnull) NSString *sectionId;
+@property (nonatomic, copy, nullable) NSString *identifier;
 @property (nonatomic, assign) CGSize size;
-@property (nonatomic, strong) id data;
+@property (nonatomic, strong, nullable) id data;
+@property (nonatomic, weak, nullable) id delegate;
 
-+ (XJCollectionReusableModel *)modelWithReuseIdentifier:(NSString *)identifier
-                                                   size:(CGSize)size
-                                                   data:(id)data;
++ (nonnull XJCollectionReusableModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
+                                                           size:(CGSize)size
+                                                           data:(nullable id)data;
 
-+ (XJCollectionReusableModel *)modelData;
++ (nonnull XJCollectionReusableModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
+                                                           size:(CGSize)size
+                                                           data:(nullable id)data
+                                                       delegate:(nullable id)delegate;
 
 @end

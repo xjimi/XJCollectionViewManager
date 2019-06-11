@@ -10,9 +10,9 @@
 
 @implementation XJCollectionViewCellModel
 
-+ (XJCollectionViewCellModel *)modelWithReuseIdentifier:(NSString *)identifier
-                                                   size:(CGSize)size
-                                                   data:(id)data
++ (nonnull XJCollectionViewCellModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
+                                                           size:(CGSize)size
+                                                           data:(nullable id)data
 {
     XJCollectionViewCellModel *cellModel = [[XJCollectionViewCellModel alloc] init];
     cellModel.identifier = identifier;

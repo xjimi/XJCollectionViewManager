@@ -10,7 +10,6 @@
 
 @interface XJCollectionViewManager () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout >
 
-@property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) NSMutableArray *registeredCells;
 @property (nonatomic, copy)   XJCollectionViewForSupplementaryElementBlock viewForSupplementaryElementBlock;
 @property (nonatomic, copy)   XJCollectionViewCellForItemBlock cellForItemBlock;
@@ -21,7 +20,7 @@
 
 @implementation XJCollectionViewManager
 
-+ (instancetype)managerWithCollectionViewLayout:(UICollectionViewLayout *)layout {
++ (nonnull instancetype)managerWithCollectionViewLayout:(nonnull UICollectionViewLayout *)layout {
     return [[self alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 }
 
@@ -44,36 +43,38 @@
     return self;
 }
 
-- (void)addViewForSupplementaryElementBlock:(XJCollectionViewForSupplementaryElementBlock)supplementaryElementBlock {
+- (void)addViewForSupplementaryElementBlock:(nonnull XJCollectionViewForSupplementaryElementBlock)supplementaryElementBlock {
     self.viewForSupplementaryElementBlock = supplementaryElementBlock;
 }
 
-- (void)addCellForItemBlock:(XJCollectionViewCellForItemBlock)itemBlock {
+- (void)addCellForItemBlock:(nonnull XJCollectionViewCellForItemBlock)itemBlock {
     self.cellForItemBlock = itemBlock;
 }
 
-- (void)addWillDisplayCellBlock:(XJCollectionViewWillDisplayCellBlock)cellBlock {
+- (void)addWillDisplayCellBlock:(nonnull XJCollectionViewWillDisplayCellBlock)cellBlock {
     self.willDisplayCellBlock = cellBlock;
 }
 
-- (void)addDidSelectItemBlock:(XJCollectionViewDidSelectItemBlock)itemBlock {
+- (void)addDidSelectItemBlock:(nonnull XJCollectionViewDidSelectItemBlock)itemBlock {
     self.didSelectItemBlock = itemBlock;
 }
 
-- (void)setData:(NSMutableArray *)data
+- (void)reloadData
+{
+    [UIView performWithoutAnimation:^{
+        [super reloadData];
+    }];
+}
+
+- (void)setData:(nullable NSMutableArray *)data
 {
     if (!data) data = [NSMutableArray array];
-    
     [self registerCellWithData:data];
-    
-    if (data.count < _data.count && data) {
-        [self setContentOffset:self.contentOffset animated:NO];
-    }
-    _data = data;
+    _data = [data mutableCopy];
     [self reloadData];
 }
 
-- (void)appendRowsWithDataModel:(XJCollectionViewDataModel *)dataModel
+- (void)appendRowsWithDataModel:(nonnull XJCollectionViewDataModel *)dataModel
 {
     if (!dataModel.section && !dataModel.rows.count) return;
     
@@ -108,11 +109,11 @@
     }];
 }
 
-- (void)appendDataModel:(XJCollectionViewDataModel *)dataModel {
+- (void)appendDataModel:(nonnull XJCollectionViewDataModel *)dataModel {
     [self insertDataModel:dataModel atSectionIndex:self.data.count];
 }
 
-- (void)insertDataModel:(XJCollectionViewDataModel *)dataModel
+- (void)insertDataModel:(nonnull XJCollectionViewDataModel *)dataModel
          atSectionIndex:(NSInteger)sectionIndex
 {
     if (!dataModel.section && !dataModel.rows.count) return;
@@ -129,45 +130,13 @@
     }
     
     [self.data insertObject:dataModel atIndex:sectionIndex];
-    
+
     [UIView performWithoutAnimation:^{
         [self insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
     }];
-
 }
 
-- (void)insertData:(NSArray *)data
-{
-    if (!_data) _data = [NSMutableArray array];
-    [self registerCellWithData:data];
-    
-    for (XJCollectionViewDataModel *dataModel in data)
-    {
-        if (dataModel.section)
-        {
-            [_data addObject:dataModel];
-            NSInteger sectionNum = _data.count-1;
-            [self insertSections:[NSIndexSet indexSetWithIndex:sectionNum]];
-        }
-        else if (dataModel.rows.count)
-        {
-            XJCollectionViewDataModel *curDataModel = _data.lastObject;
-            [curDataModel.rows addObjectsFromArray:dataModel.rows];
-            NSInteger sectionNum = _data.count-1;
-            NSInteger itemNum = curDataModel.rows.count;
-            NSInteger numberOfItems = [self numberOfItemsInSection:sectionNum];
-            
-            NSMutableArray *indexPaths = [NSMutableArray array];
-            for (NSUInteger i = numberOfItems; i < itemNum; i++) {
-                [indexPaths addObject:[NSIndexPath indexPathForItem:i inSection:sectionNum]];
-            }
-            
-            [self insertItemsAtIndexPaths:indexPaths];
-        }
-    }
-}
-
-- (void)registerCellWithData:(NSArray *)data
+- (void)registerCellWithData:(nonnull NSArray *)data
 {
     for (XJCollectionViewDataModel *dataModel in data)
     {
@@ -333,5 +302,36 @@
         self.didSelectItemBlock(cellModel, indexPath);
     }
 }
+
+#pragma mark
+
+- (nullable XJCollectionViewCellModel *)cellModelAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    if (indexPath.section >= self.data.count) {
+        return nil;
+    }
+    XJCollectionViewDataModel *dataModel = [self.data objectAtIndex:indexPath.section];
+    if (indexPath.row >= dataModel.rows.count) {
+        return nil;
+    }
+    XJCollectionViewCellModel *cellModel = [dataModel.rows objectAtIndex:indexPath.row];
+    return cellModel;
+}
+
+- (nullable XJCollectionReusableModel *)headerModelAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    if (indexPath.section >= self.data.count) {
+        return nil;
+    }
+    XJCollectionViewDataModel *dataModel = [self.data objectAtIndex:indexPath.section];
+    return dataModel.section;
+}
+
+- (nullable NSString *)sessionIdAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    XJCollectionReusableModel *headerModel = [self headerModelAtIndexPath:indexPath];
+    return headerModel.sectionId;
+}
+
 
 @end
