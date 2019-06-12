@@ -11,6 +11,7 @@
 #import "XJCollectionViewDelegate.h"
 #import "XJCollectionViewDataModel.h"
 #import "XJCollectionViewHeaderModel.h"
+#import "XJCollectionViewFooterModel.h"
 #import "XJCollectionViewCellModel.h"
 #import "XJCollectionViewHeader.h"
 #import "XJCollectionViewFooter.h"

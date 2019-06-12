@@ -11,12 +11,15 @@
 #import "XJCollectionViewHeaderModel.h"
 #import "XJCollectionViewCellModel.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XJCollectionViewDataModel : NSObject
 
 @property (nonatomic, strong, nullable) XJCollectionReusableModel *section;
-@property (nonatomic, strong, nonnull) NSMutableArray *rows;
+@property (nonatomic, strong) NSMutableArray *rows;
 
-+ (nonnull XJCollectionViewDataModel *)modelWithSection:(nullable XJCollectionReusableModel *)reusableModel
-                                                   rows:(nonnull NSArray *)rows;
-
++ (XJCollectionViewDataModel *)modelWithSection:(nullable XJCollectionReusableModel *)reusableModel
+                                           rows:(NSArray *)rows;
 @end
+
+NS_ASSUME_NONNULL_END

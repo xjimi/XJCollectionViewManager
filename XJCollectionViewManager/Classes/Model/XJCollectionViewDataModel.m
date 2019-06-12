@@ -10,8 +10,8 @@
 
 @implementation XJCollectionViewDataModel
 
-+ (nonnull XJCollectionViewDataModel *)modelWithSection:(nullable XJCollectionReusableModel *)reusableModel
-                                                   rows:(nonnull NSArray *)rows
++ (XJCollectionViewDataModel *)modelWithSection:(nullable XJCollectionReusableModel *)reusableModel
+                                           rows:(NSArray *)rows
 {
     XJCollectionViewDataModel *dataModel = [[XJCollectionViewDataModel alloc] init];
     dataModel.section = reusableModel;

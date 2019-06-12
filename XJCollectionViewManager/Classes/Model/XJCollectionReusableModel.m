@@ -8,19 +8,27 @@
 
 #import "XJCollectionReusableModel.h"
 
+@interface XJCollectionReusableModel ()
+
+@property (nonatomic, copy, readwrite) NSString *sectionId;
+
+@property (nonatomic, copy, readwrite) NSString *identifier;
+
+@end
+
 @implementation XJCollectionReusableModel
 
-+ (nonnull XJCollectionReusableModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
-                                                           size:(CGSize)size
-                                                           data:(nullable id)data
++ (XJCollectionReusableModel *)modelWithReuseIdentifier:(NSString *)identifier
+                                                   size:(CGSize)size
+                                                   data:(nullable id)data
 {
     return [XJCollectionReusableModel modelWithReuseIdentifier:identifier size:size data:data delegate:nil];
 }
 
-+ (nonnull XJCollectionReusableModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
-                                                           size:(CGSize)size
-                                                           data:(nullable id)data
-                                                       delegate:(nullable id)delegate;
++ (XJCollectionReusableModel *)modelWithReuseIdentifier:(NSString *)identifier
+                                                   size:(CGSize)size
+                                                   data:(nullable id)data
+                                               delegate:(nullable id)delegate;
 {
     XJCollectionReusableModel *reusableModel = [[XJCollectionReusableModel alloc] init];
     NSInteger time = [[NSDate date] timeIntervalSince1970];

@@ -8,6 +8,10 @@
 
 #import "XJCollectionReusableView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XJCollectionViewFooter : XJCollectionReusableView
 
 @end
+
+NS_ASSUME_NONNULL_END

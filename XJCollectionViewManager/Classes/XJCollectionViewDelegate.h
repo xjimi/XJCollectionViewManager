@@ -8,7 +8,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol XJCollectionViewDelegate <NSObject>
+
 @optional
+
 - (NSInteger)xj_collectionView:(UICollectionView *)collectionView
         numberOfItemsInSection:(NSInteger)section;
 

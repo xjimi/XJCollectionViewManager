@@ -8,11 +8,17 @@
 
 #import "XJCollectionViewCellModel.h"
 
+@interface XJCollectionViewCellModel ()
+
+@property (nonatomic, copy, readwrite) NSString *identifier;
+
+@end
+
 @implementation XJCollectionViewCellModel
 
-+ (nonnull XJCollectionViewCellModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
-                                                           size:(CGSize)size
-                                                           data:(nullable id)data
++ (XJCollectionViewCellModel *)modelWithReuseIdentifier:(NSString *)identifier
+                                                   size:(CGSize)size
+                                                   data:(nullable id)data
 {
     XJCollectionViewCellModel *cellModel = [[XJCollectionViewCellModel alloc] init];
     cellModel.identifier = identifier;

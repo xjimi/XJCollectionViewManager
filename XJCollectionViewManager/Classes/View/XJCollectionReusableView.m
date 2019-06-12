@@ -18,7 +18,7 @@
     return [UINib nibWithNibName:[self identifier] bundle:nil];
 }
 
-- (void)reloadData:(id)data {
+- (void)reloadData:(nullable id)data {
 }
 
 @end

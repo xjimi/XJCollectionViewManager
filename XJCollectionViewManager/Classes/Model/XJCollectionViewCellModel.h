@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XJCollectionViewCellModel : NSObject
 
-@property (nonatomic, copy, nullable) NSString *identifier;
+@property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, strong, nullable) id data;
 
-+ (nonnull XJCollectionViewCellModel *)modelWithReuseIdentifier:(nullable NSString *)identifier
-                                                           size:(CGSize)size
-                                                           data:(nullable id)data;
++ (XJCollectionViewCellModel *)modelWithReuseIdentifier:(NSString *)identifier
+                                                   size:(CGSize)size
+                                                   data:(nullable id)data;
 
 @end
+
+NS_ASSUME_NONNULL_END
