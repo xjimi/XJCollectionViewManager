@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) id data;
 @property (nonatomic, weak, nullable) id delegate;
 
++ (XJCollectionReusableModel *)emptyModel;
+
 + (XJCollectionReusableModel *)modelWithReuseIdentifier:(NSString *)identifier
                                                    size:(CGSize)size
                                                    data:(nullable id)data;

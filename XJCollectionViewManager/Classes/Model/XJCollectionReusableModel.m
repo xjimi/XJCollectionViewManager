@@ -18,6 +18,10 @@
 
 @implementation XJCollectionReusableModel
 
++ (XJCollectionReusableModel *)emptyModel {
+    return [XJCollectionReusableModel modelWithReuseIdentifier:@"EmptyHeader" size:CGSizeZero data:nil];
+}
+
 + (XJCollectionReusableModel *)modelWithReuseIdentifier:(NSString *)identifier
                                                    size:(CGSize)size
                                                    data:(nullable id)data
@@ -32,7 +36,6 @@
 {
     XJCollectionReusableModel *reusableModel = [[XJCollectionReusableModel alloc] init];
     NSInteger time = [[NSDate date] timeIntervalSince1970];
-    identifier = identifier ? : @"EmptyHeader";
     reusableModel.sectionId = [NSString stringWithFormat:@"%@_%ld", identifier, (long)time];
     reusableModel.identifier = identifier;
     reusableModel.size = size;

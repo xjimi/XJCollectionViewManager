@@ -14,7 +14,7 @@
                                            rows:(NSArray *)rows
 {
     XJCollectionViewDataModel *dataModel = [[XJCollectionViewDataModel alloc] init];
-    dataModel.section = reusableModel;
+    dataModel.section = reusableModel ? : [XJCollectionReusableModel emptyModel];
     dataModel.rows = rows.mutableCopy;
     return dataModel;
 }
