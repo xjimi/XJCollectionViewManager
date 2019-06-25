@@ -148,19 +148,21 @@
             {
                 [self.registeredCells addObject:reusableId];
                 NSString *kind = UICollectionElementKindSectionHeader;
-                if([[NSBundle mainBundle] pathForResource:reusableId ofType:@"nib"])
+
+                Class class = NSClassFromString(reusableId);
+                NSBundle *bundle = [NSBundle bundleForClass:class];
+                if([bundle pathForResource:reusableId ofType:@"nib"])
                 {
-                    UINib *nib = [UINib nibWithNibName:reusableId bundle:nil];
+                    UINib *nib = [UINib nibWithNibName:reusableId bundle:bundle];
                     [self registerNib:nib forSupplementaryViewOfKind:kind withReuseIdentifier:reusableId];
                 }
                 else
                 {
-                    Class class = NSClassFromString(reusableId);
                     [self registerClass:class forSupplementaryViewOfKind:kind withReuseIdentifier:reusableId];
                 }
             }
         }
-        
+
         if (dataModel.rows)
         {
             for (XJCollectionViewCellModel *cellModel in dataModel.rows)
@@ -168,14 +170,16 @@
                 NSString *cellId = cellModel.identifier;
                 if ([self.registeredCells containsObject:cellId]) continue;
                 [self.registeredCells addObject:cellId];
-                if([[NSBundle mainBundle] pathForResource:cellId ofType:@"nib"])
+
+                Class class = NSClassFromString(cellId);
+                NSBundle *bundle = [NSBundle bundleForClass:class];
+                if([bundle pathForResource:cellId ofType:@"nib"])
                 {
-                    UINib *nib = [UINib nibWithNibName:cellId bundle:nil];
+                    UINib *nib = [UINib nibWithNibName:cellId bundle:bundle];
                     [self registerNib:nib forCellWithReuseIdentifier:cellId];
                 }
                 else
                 {
-                    Class class = NSClassFromString(cellId);
                     [self registerClass:class forCellWithReuseIdentifier:cellId];
                 }
             }
