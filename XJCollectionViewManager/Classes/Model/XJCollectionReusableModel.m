@@ -18,10 +18,6 @@
 
 @implementation XJCollectionReusableModel
 
-+ (XJCollectionReusableModel *)emptyModel {
-    return [XJCollectionReusableModel modelWithReuseIdentifier:@"EmptyHeader" size:CGSizeZero data:nil];
-}
-
 + (XJCollectionReusableModel *)modelWithReuseIdentifier:(NSString *)identifier
                                                    size:(CGSize)size
                                                    data:(nullable id)data

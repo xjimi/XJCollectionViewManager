@@ -9,17 +9,27 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "XJCollectionViewHeaderModel.h"
+#import "XJCollectionViewFooterModel.h"
 #import "XJCollectionViewCellModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XJCollectionViewDataModel : NSObject
 
-@property (nonatomic, strong, nullable) XJCollectionReusableModel *section;
+@property (nonatomic, strong, nullable) XJCollectionViewHeaderModel *header;
+@property (nonatomic, strong, nullable) XJCollectionViewFooterModel *footer;
 @property (nonatomic, strong) NSMutableArray *rows;
 
-+ (XJCollectionViewDataModel *)modelWithSection:(nullable XJCollectionReusableModel *)reusableModel
-                                           rows:(NSArray *)rows;
++ (XJCollectionViewDataModel *)modelWithHeader:(nullable XJCollectionViewHeaderModel *)headerModel
+                                          rows:(NSArray *)rows;
+
++ (XJCollectionViewDataModel *)modelWithFooter:(nullable XJCollectionViewFooterModel *)footerModel
+                                          rows:(NSArray *)rows;
+
++ (XJCollectionViewDataModel *)modelWithHeader:(nullable XJCollectionViewHeaderModel *)headerModel
+                                        footer:(nullable XJCollectionViewFooterModel *)footerModel
+                                          rows:(NSArray *)rows;
+
 @end
 
 NS_ASSUME_NONNULL_END

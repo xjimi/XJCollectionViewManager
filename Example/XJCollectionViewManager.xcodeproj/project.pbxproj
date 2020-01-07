@@ -28,6 +28,8 @@
 		901512F422AEB62F006FF8F0 /* DramaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 901512F322AEB62F006FF8F0 /* DramaModel.m */; };
 		904DC7CE22AF492E00787D58 /* DramaHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 904DC7CC22AF492E00787D58 /* DramaHeader.m */; };
 		904DC7CF22AF492E00787D58 /* DramaHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904DC7CD22AF492E00787D58 /* DramaHeader.xib */; };
+		904E116923C46BE500DC6CBF /* DramaFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E116723C46BE500DC6CBF /* DramaFooter.m */; };
+		904E116A23C46BE500DC6CBF /* DramaFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904E116823C46BE500DC6CBF /* DramaFooter.xib */; };
 		C2A6579633875979F2CB84D9 /* Pods_XJCollectionViewManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B298439AD024E17E1F69AE17 /* Pods_XJCollectionViewManager_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,9 @@
 		904DC7CB22AF492E00787D58 /* DramaHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DramaHeader.h; sourceTree = "<group>"; };
 		904DC7CC22AF492E00787D58 /* DramaHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DramaHeader.m; sourceTree = "<group>"; };
 		904DC7CD22AF492E00787D58 /* DramaHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DramaHeader.xib; sourceTree = "<group>"; };
+		904E116623C46BE500DC6CBF /* DramaFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DramaFooter.h; sourceTree = "<group>"; };
+		904E116723C46BE500DC6CBF /* DramaFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DramaFooter.m; sourceTree = "<group>"; };
+		904E116823C46BE500DC6CBF /* DramaFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DramaFooter.xib; sourceTree = "<group>"; };
 		9C341D2356647CFDCB98427F /* Pods_XJCollectionViewManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJCollectionViewManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B298439AD024E17E1F69AE17 /* Pods_XJCollectionViewManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJCollectionViewManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8286DF35B89132024CFE2FD /* XJCollectionViewManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XJCollectionViewManager.podspec; path = ../XJCollectionViewManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -237,6 +242,9 @@
 				904DC7CB22AF492E00787D58 /* DramaHeader.h */,
 				904DC7CC22AF492E00787D58 /* DramaHeader.m */,
 				904DC7CD22AF492E00787D58 /* DramaHeader.xib */,
+				904E116623C46BE500DC6CBF /* DramaFooter.h */,
+				904E116723C46BE500DC6CBF /* DramaFooter.m */,
+				904E116823C46BE500DC6CBF /* DramaFooter.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904E116A23C46BE500DC6CBF /* DramaFooter.xib in Resources */,
 				904DC7CF22AF492E00787D58 /* DramaHeader.xib in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
@@ -422,6 +431,7 @@
 				904DC7CE22AF492E00787D58 /* DramaHeader.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				901512ED22AEB28D006FF8F0 /* DramaCell.m in Sources */,
+				904E116923C46BE500DC6CBF /* DramaFooter.m in Sources */,
 				901512F422AEB62F006FF8F0 /* DramaModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
