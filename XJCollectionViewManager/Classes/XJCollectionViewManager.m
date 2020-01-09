@@ -314,6 +314,12 @@
     [self reloadData];
 }
 
+- (void)removeAllDataModels
+{
+    [self.dataModels removeAllObjects];
+    [self reloadData];
+}
+
 #pragma mark - Get dataModel
 
 - (NSArray *)allDataModels {

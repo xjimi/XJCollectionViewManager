@@ -91,6 +91,8 @@ typedef void (^XJCollectionViewDidSelectItemBlock) (XJCollectionViewCellModel * 
 /// @param indexPath 待刪除的索引位置
 - (void)removeFooterAtIndexPath:(NSIndexPath *)indexPath;
 
+/// 移除所有 dataModel
+- (void)removeAllDataModels;
 
 #pragma mark - Update cellModel, header, footer
 
@@ -121,7 +123,6 @@ typedef void (^XJCollectionViewDidSelectItemBlock) (XJCollectionViewCellModel * 
 
 
 #pragma mark - Get dataModel
-
 
 /// 取得所有 dataModels
 - (NSArray *)allDataModels;
