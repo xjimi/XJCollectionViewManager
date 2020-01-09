@@ -33,7 +33,6 @@
         self.delegate = self;
         self.dataSource = self;
         self.alwaysBounceVertical = YES;
-        self.backgroundColor = [UIColor whiteColor];
         self.dataModels = [NSMutableArray array];
         self.registeredCells = [NSMutableDictionary dictionary];
         
