@@ -31,6 +31,11 @@ typedef void (^XJCollectionViewDidSelectItemBlock) (XJCollectionViewCellModel * 
 
 @property (nonatomic, weak, nullable) id < XJCollectionViewDelegate > collectionViewDelegate;
 
+@property (nonatomic, copy) void (^scrollViewDidScrollBlock)(UIScrollView *scrollView);
+@property (nonatomic, copy) void (^scrollViewWillBeginDraggingBlock)(UIScrollView *scrollView);
+@property (nonatomic, copy) void (^scrollViewDidEndDeceleratingBlock)(UIScrollView *scrollView);
+@property (nonatomic, copy) void (^scrollViewDidEndDraggingBlock)(UIScrollView *scrollView, BOOL decelerate);
+
 + (instancetype)managerWithCollectionViewLayout:(UICollectionViewLayout *)layout;
 
 #pragma mark - Refresh dataModel

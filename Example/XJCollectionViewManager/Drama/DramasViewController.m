@@ -60,6 +60,7 @@
     [self.collectionView addDidSelectItemBlock:^(XJCollectionViewCellModel * _Nonnull cellModel, NSIndexPath * _Nonnull indexPath) {
         [weakSelf.collectionView removeFooterAtIndexPath:indexPath];
     }];
+    
 }
 
 - (void)reloadData {

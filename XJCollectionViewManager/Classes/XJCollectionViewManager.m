@@ -509,4 +509,34 @@
     self.viewForSupplementaryElementBlock = supplementaryElementBlock;
 }
 
+#pragma mark - UIScrollView delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.scrollViewDidScrollBlock) {
+        self.scrollViewDidScrollBlock(scrollView);
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (self.scrollViewWillBeginDraggingBlock) {
+        self.scrollViewWillBeginDraggingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (self.scrollViewDidEndDeceleratingBlock) {
+        self.scrollViewDidEndDeceleratingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (self.scrollViewDidEndDraggingBlock) {
+        self.scrollViewDidEndDraggingBlock(scrollView, decelerate);
+    }
+}
+
 @end
