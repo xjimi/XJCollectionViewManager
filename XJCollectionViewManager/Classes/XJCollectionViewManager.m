@@ -72,6 +72,11 @@
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.collectionViewDelegate respondsToSelector:@selector(xj_collectionView:viewForSupplementaryElementOfKind:atIndexPath:)]) {
+        UICollectionReusableView *reusableView = [self.collectionViewDelegate xj_collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
+        if (reusableView) return reusableView;
+    }
+
     if([kind isEqual:UICollectionElementKindSectionHeader])
     {
         XJCollectionViewHeaderModel *header = [self headerModelAtIndexPath:indexPath];

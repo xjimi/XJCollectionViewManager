@@ -24,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
                      layout:(UICollectionViewLayout*)collectionViewLayout
      sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
+- (UICollectionReusableView *)xj_collectionView:(UICollectionView *)collectionView
+              viewForSupplementaryElementOfKind:(NSString *)kind
+                                    atIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 NS_ASSUME_NONNULL_END
