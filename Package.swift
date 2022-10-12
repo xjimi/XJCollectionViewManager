@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "XJCollectionViewManager",
-            path: "XJCollectionViewManager/Classes",
+            path: "Sources",
             publicHeadersPath: "."),
     ]
 )
