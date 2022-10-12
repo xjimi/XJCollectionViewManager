@@ -8,15 +8,16 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XJCollectionViewManager'
-  s.version          = '0.1.52'
+  s.version          = '0.1.55'
   s.summary          = 'Easy to use UICollectionView'
   s.homepage         = 'https://github.com/xjimi/XJCollectionViewManager'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'xjimi' => 'fn5128@gmail.com' }
   s.source           = { :git => 'https://github.com/xjimi/XJCollectionViewManager.git', :tag => s.version.to_s }
-  s.ios.deployment_target = '9.0'
-  s.source_files = 'XJCollectionViewManager/Classes/**/*'
-  s.frameworks = 'UIKit', 'Foundation'
+  s.source_files     = "XJCollectionViewManager", "Sources/**/*.{h,m}"
+  s.requires_arc     = true
+  s.frameworks       = 'UIKit', 'Foundation'
+  s.ios.deployment_target = '10.0'
 
   # s.resource_bundles = {
   #   'XJCollectionViewManager' => ['XJCollectionViewManager/Assets/*.png']
