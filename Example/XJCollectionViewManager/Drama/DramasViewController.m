@@ -13,7 +13,7 @@
 #import "DramaFooter.h"
 #import "DramaCell.h"
 
-@interface DramasViewController ()
+@interface DramasViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) XJCollectionViewManager *collectionView;
 
@@ -45,6 +45,7 @@
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 3, 0);
     
     XJCollectionViewManager *collectionView = [XJCollectionViewManager managerWithCollectionViewLayout:flowLayout];
+    collectionView.scrollViewDelegate = self;
     collectionView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:collectionView];
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -60,7 +61,14 @@
     [self.collectionView addDidSelectItemBlock:^(XJCollectionViewCellModel * _Nonnull cellModel, NSIndexPath * _Nonnull indexPath) {
         [weakSelf.collectionView removeFooterAtIndexPath:indexPath];
     }];
-    
+
+    [self.collectionView setScrollViewDidScrollBlock:^(UIScrollView * _Nonnull scrollView) {
+//        NSLog(@"scrollViewDidScroll---- ++++");
+    }];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"scrollViewDidScroll----");
 }
 
 - (void)reloadData {

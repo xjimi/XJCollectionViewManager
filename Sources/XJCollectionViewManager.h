@@ -30,11 +30,13 @@ typedef void (^XJCollectionViewDidSelectItemBlock) (XJCollectionViewCellModel * 
 @interface XJCollectionViewManager : UICollectionView
 
 @property (nonatomic, weak, nullable) id < XJCollectionViewDelegate > collectionViewDelegate;
+@property (nonatomic, weak, nullable) id < UIScrollViewDelegate > scrollViewDelegate;
 
 @property (nonatomic, copy) void (^scrollViewDidScrollBlock)(UIScrollView *scrollView);
 @property (nonatomic, copy) void (^scrollViewWillBeginDraggingBlock)(UIScrollView *scrollView);
 @property (nonatomic, copy) void (^scrollViewDidEndDeceleratingBlock)(UIScrollView *scrollView);
 @property (nonatomic, copy) void (^scrollViewDidEndDraggingBlock)(UIScrollView *scrollView, BOOL decelerate);
+@property (nonatomic, copy) void (^scrollViewDidScrollToTopBlock)(UIScrollView *scrollView);
 
 + (instancetype)managerWithCollectionViewLayout:(UICollectionViewLayout *)layout;
 

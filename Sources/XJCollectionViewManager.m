@@ -518,6 +518,10 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+        [self.scrollViewDelegate scrollViewDidScroll:scrollView];
+    }
+
     if (self.scrollViewDidScrollBlock) {
         self.scrollViewDidScrollBlock(scrollView);
     }
@@ -525,6 +529,10 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
+        [self.scrollViewDelegate scrollViewWillBeginDragging:scrollView];
+    }
+
     if (self.scrollViewWillBeginDraggingBlock) {
         self.scrollViewWillBeginDraggingBlock(scrollView);
     }
@@ -532,6 +540,10 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
+        [self.scrollViewDelegate scrollViewDidEndDecelerating:scrollView];
+    }
+
     if (self.scrollViewDidEndDeceleratingBlock) {
         self.scrollViewDidEndDeceleratingBlock(scrollView);
     }
@@ -539,8 +551,38 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+    if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
+        [self.scrollViewDelegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+    }
+
     if (self.scrollViewDidEndDraggingBlock) {
         self.scrollViewDidEndDraggingBlock(scrollView, decelerate);
+    }
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+    if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewDidScrollToTop:)]) {
+        [self.scrollViewDelegate scrollViewDidScrollToTop:scrollView];
+    }
+
+    if (self.scrollViewDidScrollToTopBlock) {
+        self.scrollViewDidScrollToTopBlock(scrollView);
+    }
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
+    if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewShouldScrollToTop:)]) {
+        return [self.scrollViewDelegate scrollViewShouldScrollToTop:scrollView];
+    }
+
+    return true;
+}
+
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView {
+    if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewDidChangeAdjustedContentInset:)]) {
+        if (@available(iOS 11.0, *)) {
+            return [self.scrollViewDelegate scrollViewDidChangeAdjustedContentInset:scrollView];
+        }
     }
 }
 
