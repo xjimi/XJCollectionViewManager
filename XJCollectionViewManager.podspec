@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XJCollectionViewManager'
-  s.version          = '0.1.57'
+  s.version          = '0.1.58'
   s.summary          = 'Easy to use UICollectionView'
   s.homepage         = 'https://github.com/xjimi/XJCollectionViewManager'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
