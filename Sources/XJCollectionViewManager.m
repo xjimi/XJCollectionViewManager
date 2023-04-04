@@ -580,9 +580,7 @@
 
 - (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView {
     if ([self.scrollViewDelegate respondsToSelector:@selector(scrollViewDidChangeAdjustedContentInset:)]) {
-        if (@available(iOS 11.0, *)) {
-            return [self.scrollViewDelegate scrollViewDidChangeAdjustedContentInset:scrollView];
-        }
+        return [self.scrollViewDelegate scrollViewDidChangeAdjustedContentInset:scrollView];
     }
 }
 
